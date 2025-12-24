@@ -42,6 +42,14 @@ An interactive physics simulation demo built with HTML5 Canvas and JavaScript, d
    - Watch objects fall, bounce, and collide
    - Click "Reset Scene" to start fresh
 
+## Deployment (GitHub Pages)
+
+The project is a static site and can be deployed automatically:
+
+1. In your repository settings, under **Pages**, select **Source: GitHub Actions**.
+2. The included workflow `.github/workflows/deploy.yml` publishes the site on every push to `main`.
+3. Once the workflow finishes, GitHub provides a public URL (also shown in the workflow output) where the simulation is live.
+
 ## Code Architecture
 
 The simulation is built with clean, modular JavaScript:
