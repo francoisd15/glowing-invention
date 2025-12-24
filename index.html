@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Simulation Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="title-section">
+                    <h1 class="title">Physics Simulation</h1>
+                    <p class="subtitle">Interactive particle physics engine</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="content-wrapper">
+            <!-- Canvas Section -->
+            <section class="canvas-section">
+                <div class="canvas-wrapper">
+                    <div class="canvas-header">
+                        <h2>Simulation Canvas</h2>
+                        <span class="canvas-hint">Click to spawn objects</span>
+                    </div>
+                    <div class="canvas-container">
+                        <canvas id="canvas" width="800" height="600"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Controls Sidebar -->
+            <aside class="controls-sidebar">
+                <div class="controls-card">
+                    <div class="card-header">
+                        <h2>Physics Parameters</h2>
+                    </div>
+                    
+                    <div class="controls-content">
+                        <!-- Gravity Control -->
+                        <div class="control-group">
+                            <div class="control-label-row">
+                                <label for="gravity" class="control-label">Gravity</label>
+                                <span class="control-value" id="gravityValue">0.5</span>
+                            </div>
+                            <input type="range" id="gravity" min="0" max="2" step="0.1" value="0.5" class="slider">
+                            <div class="range-labels">
+                                <span>0</span>
+                                <span>2</span>
+                            </div>
+                        </div>
+
+                        <!-- Friction Control -->
+                        <div class="control-group">
+                            <div class="control-label-row">
+                                <label for="friction" class="control-label">Friction</label>
+                                <span class="control-value" id="frictionValue">0.98</span>
+                            </div>
+                            <input type="range" id="friction" min="0.8" max="1" step="0.01" value="0.98" class="slider">
+                            <div class="range-labels">
+                                <span>0.8</span>
+                                <span>1.0</span>
+                            </div>
+                        </div>
+
+                        <!-- Bounciness Control -->
+                        <div class="control-group">
+                            <div class="control-label-row">
+                                <label for="restitution" class="control-label">Bounciness</label>
+                                <span class="control-value" id="restitutionValue">0.7</span>
+                            </div>
+                            <input type="range" id="restitution" min="0" max="1" step="0.05" value="0.7" class="slider">
+                            <div class="range-labels">
+                                <span>0</span>
+                                <span>1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="button-card">
+                    <div class="card-header">
+                        <h2>Actions</h2>
+                    </div>
+                    <div class="button-group">
+                        <button id="spawnCircle" class="btn btn-primary">
+                            <span class="btn-icon">●</span> Spawn Circle
+                        </button>
+                        <button id="spawnBox" class="btn btn-secondary">
+                            <span class="btn-icon">■</span> Spawn Box
+                        </button>
+                        <button id="reset" class="btn btn-danger">
+                            <span class="btn-icon">↺</span> Reset Scene
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Info Card -->
+                <div class="info-card">
+                    <div class="card-header">
+                        <h2>Instructions</h2>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-item">
+                            <span class="info-bullet">•</span>
+                            <p><strong>Click on canvas</strong> to spawn objects at mouse position</p>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-bullet">•</span>
+                            <p><strong>Adjust sliders</strong> to change physics parameters</p>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-bullet">•</span>
+                            <p><strong>Use buttons</strong> to spawn specific objects</p>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-bullet">•</span>
+                            <p><strong>Reset</strong> to clear all objects and start over</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="js/Vector2D.js"></script>
+    <script src="js/PhysicsObject.js"></script>
+    <script src="js/PhysicsEngine.js"></script>
+    <script src="js/Renderer.js"></script>
+    <script src="js/UIController.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

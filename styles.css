@@ -1,0 +1,511 @@
+/* ============================================
+   COLOR PALETTE
+   ============================================ */
+
+:root {
+    /* Primary Colors */
+    --color-0: #9EC99E;    /* Sage Green */
+    --color-1: #6EA8D3;    /* Sky Blue */
+    --color-2: #0B53AA;    /* Ocean Blue */
+    --color-3: #163398;    /* Navy Blue */
+    --color-4: #4545B9;    /* Purple Blue */
+    --color-5: #9E4764;    /* Mauve Rose */
+    
+    /* Complementary Colors */
+    --color-comp-1: #FFB86C; /* Warm Orange */
+    --color-comp-2: #50FA7B; /* Vibrant Green */
+    --color-comp-3: #FF79C6; /* Hot Pink */
+    
+    /* Neutral Colors */
+    --bg-primary: #FAFBFC;
+    --bg-secondary: #FFFFFF;
+    --bg-tertiary: #F0F1F4;
+    --border: #E1E4E8;
+    --text-primary: #1C2128;
+    --text-secondary: #57606A;
+    --text-tertiary: #8C959F;
+}
+
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.header {
+    background: linear-gradient(135deg, var(--color-3) 0%, var(--color-2) 100%);
+    padding: 3rem 1.5rem;
+    color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.header-content {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.title-section {
+    text-align: left;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+/* ============================================
+   MAIN LAYOUT
+   ============================================ */
+
+.main-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* ============================================
+   CANVAS SECTION
+   ============================================ */
+
+.canvas-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.canvas-wrapper {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+.canvas-wrapper:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.canvas-header {
+    padding: 1.5rem;
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.canvas-header h2 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.canvas-hint {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    background: rgba(110, 168, 211, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    border-left: 3px solid var(--color-1);
+}
+
+.canvas-container {
+    background: #F8F9FA;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#canvas {
+    display: block;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    cursor: crosshair;
+    background: #FFFFFF;
+    transition: box-shadow 0.2s ease;
+}
+
+#canvas:hover {
+    box-shadow: 0 0 0 3px rgba(110, 168, 211, 0.1);
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+
+.controls-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.controls-card,
+.button-card,
+.info-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+.controls-card:hover,
+.button-card:hover,
+.info-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    padding: 1.25rem 1.5rem;
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border);
+}
+
+.card-header h2 {
+    font-size: 1.125rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* ============================================
+   CONTROLS
+   ============================================ */
+
+.controls-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.control-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.control-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+}
+
+.control-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-1);
+    background: rgba(110, 168, 211, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    min-width: 3rem;
+    text-align: center;
+}
+
+.slider {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--bg-tertiary);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-1) 0%, var(--color-2) 100%);
+    cursor: pointer;
+    border: 2px solid var(--bg-secondary);
+    box-shadow: 0 2px 6px rgba(11, 83, 170, 0.3);
+    transition: all 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(11, 83, 170, 0.4);
+}
+
+.slider::-webkit-slider-thumb:active {
+    transform: scale(1.1);
+}
+
+.slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-1) 0%, var(--color-2) 100%);
+    cursor: pointer;
+    border: 2px solid var(--bg-secondary);
+    box-shadow: 0 2px 6px rgba(11, 83, 170, 0.3);
+    transition: all 0.2s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(11, 83, 170, 0.4);
+}
+
+.slider::-moz-range-thumb:active {
+    transform: scale(1.1);
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    margin-top: 0.25rem;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.button-group {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.btn {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-icon {
+    font-size: 1.1rem;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-1) 0%, var(--color-2) 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(11, 83, 170, 0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(11, 83, 170, 0.35);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--color-4) 0%, var(--color-5) 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(69, 69, 185, 0.25);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(69, 69, 185, 0.35);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, var(--color-5) 0%, var(--color-comp-3) 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(158, 71, 100, 0.25);
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(158, 71, 100, 0.35);
+}
+
+.btn-danger:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   INFO CARD
+   ============================================ */
+
+.info-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-item {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+.info-bullet {
+    color: var(--color-1);
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.info-item p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.info-item strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1200px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .controls-sidebar {
+        grid-column: 1;
+        grid-row: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 2rem 1rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .content-wrapper {
+        padding: 0 1rem 2rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    #canvas {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .controls-card,
+    .button-card,
+    .info-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .canvas-header {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: flex-start;
+    }
+
+    .canvas-header h2 {
+        font-size: 1.1rem;
+    }
+}
